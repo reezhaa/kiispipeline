@@ -4,8 +4,7 @@
 	<groupId>id.go.kepriprov.kiispipeline</groupId>
 	<artifactId>KIISPipeline</artifactId>
 	<version>0.0.1</version>
-	<properties>
-		<!-- Adapt this to a version found on http://central.maven.org/maven2/org/eclipse/jetty/jetty-maven-plugin/ -->
+	<properties>		
 		<kafkaVersion>1.0.0</jettyVersion>		
 	</properties>
 </project>
