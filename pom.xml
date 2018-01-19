@@ -5,6 +5,56 @@
 	<artifactId>KIISPipeline</artifactId>
 	<version>0.0.1</version>
 	<properties>		
-		<kafkaVersion>1.0.0</jettyVersion>		
+		<kafkaVersion>1.0.0</jettyVersion>
+		<hiveVersion>2.3.2</hiveVersion>
+		<hadoopVersion>3.0.0</hadoopVersion>
+		<jsonjavaVersion>20171018</jsonjavaVersion>
 	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.hive</groupId>
+			<artifactId>hive-jdbc</artifactId>
+			<version>${hiveVersion}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.sun.jersey</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>${jsonjavaVersion}</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.1.1</version>
+				<executions>
+					<execution>
+						<phase>test</phase>
+						<goals>
+							<goal>java</goal>
+						</goals>
+						<configuration>
+							<mainClass>id.go.kepriprov.kiisgateway.App</mainClass>
+							<arguments>
+								<argument>myArg1</argument>
+								<argument>myArg2</argument>
+							</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
